@@ -29,6 +29,9 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+nav {
+  /* background-color: #253469; */
+}
 
 .container {
   max-width: 1160px;

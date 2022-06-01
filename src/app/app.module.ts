@@ -14,6 +14,8 @@ import { CardComponent } from './component/footer/card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { DividerComponent } from './component/divider/divider.component';
+import { BottomBarComponent } from './component/footer/bottom-bar/bottom-bar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,14 @@ import { DividerComponent } from './component/divider/divider.component';
     FooterComponent,
     CardComponent,
     DividerComponent,
+    BottomBarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -6,5 +6,39 @@
       </div>
     </div>
     <app-divider></app-divider>
+    <div class="row flex-space-around">
+      <div class="col">
+        <div class="footer-title">ABOUT</div>
+        <div class="footer-link" *ngFor="let item of about">
+          {{ item }}
+        </div>
+      </div>
+      <div class="col">
+        <div class="footer-title">HELP</div>
+        <div class="footer-link" *ngFor="let item of help">
+          {{ item }}
+        </div>
+      </div>
+      <div class="col">
+        <div class="footer-title">SOCIAL</div>
+        <div class="footer-link" *ngFor="let item of social">
+          {{ item }}
+        </div>
+      </div>
+      <div class="col">
+        <div class="footer-title">MAIL US</div>
+        <div class="footer-link" *ngFor="let item of address">
+          {{ item }}
+        </div>
+      </div>
+      <div class="col">
+        <div class="footer-title">Registered Office Address:</div>
+        <div class="footer-link" *ngFor="let item of address">
+          {{ item }}
+        </div>
+      </div>
+    </div>
+    <app-divider></app-divider>
+    <app-bottom-bar></app-bottom-bar>
   </div>
 </div>

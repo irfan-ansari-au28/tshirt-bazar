@@ -33,6 +33,25 @@ export class FooterComponent implements OnInit {
     },
   ];
 
+  about = [
+    'Contact Us',
+    'About Us',
+    'Careers',
+    'Tshirt Bazar Stories',
+    'Press',
+  ];
+  help = ['Payments', 'Shipping', 'Cancellation & Returns', 'FAQ'];
+  social = ['Facebook', 'Twitter', 'YouTube'];
+
+  address = [
+    'Tshirt Bazar Internet Private Limited,',
+    'Buildings Alyssa, Begonia &',
+    'Clove Embassy Tech Village,',
+    'Outer Ring Road, Devarabeesanahalli Village,',
+    'Bengaluru, 560103,',
+    'Karnataka, India',
+  ];
+
   constructor() {}
 
   ngOnInit(): void {}

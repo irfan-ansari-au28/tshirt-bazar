@@ -9,6 +9,11 @@ import { HomeComponent } from './component/home/home.component';
 import { MenComponent } from './component/men/men.component';
 import { WomenComponent } from './component/women/women.component';
 import { OfferComponent } from './component/offer/offer.component';
+import { FooterComponent } from './component/footer/footer.component';
+import { CardComponent } from './component/footer/card/card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { DividerComponent } from './component/divider/divider.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +23,18 @@ import { OfferComponent } from './component/offer/offer.component';
     HomeComponent,
     MenComponent,
     WomenComponent,
-    OfferComponent
+    OfferComponent,
+    FooterComponent,
+    CardComponent,
+    DividerComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatIconModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

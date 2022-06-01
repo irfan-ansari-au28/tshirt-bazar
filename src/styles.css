@@ -29,8 +29,20 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+
+.flex-space-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 nav {
   /* background-color: #253469; */
+}
+
+footer {
+  background-color: #46517f;
+  color: white;
 }
 
 .container {
@@ -47,4 +59,13 @@ section {
 h1 {
   font-size: 2rem;
   font-weight: bold;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

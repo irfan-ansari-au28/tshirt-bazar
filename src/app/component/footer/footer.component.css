@@ -1,0 +1,22 @@
+/* .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+
+.footer {
+  padding: 2rem 0rem;
+}
+
+.flex-space-around {
+  align-items: initial;
+}
+
+.footer-title {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.footer-link {
+  margin-bottom: 10px;
+}

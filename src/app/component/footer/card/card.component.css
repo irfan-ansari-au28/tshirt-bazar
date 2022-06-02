@@ -1,0 +1,13 @@
+.card {
+  text-align: center;
+  width: 99px;
+}
+
+.card-icon {
+  font-size: 30px;
+}
+
+.card-title {
+  font-weight: bold;
+  letter-spacing: 0.3px;
+}

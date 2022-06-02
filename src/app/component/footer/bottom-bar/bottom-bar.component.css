@@ -1,0 +1,11 @@
+.flex-center {
+  justify-content: space-between;
+}
+
+.fa-facebook,
+.fa-instagram,
+.fa-twitter,
+.fa-youtube {
+  margin-right: 15px;
+  font-size: 20px;
+}

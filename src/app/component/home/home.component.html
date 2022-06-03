@@ -27,4 +27,15 @@
       </div>
     </div>
   </div>
+  <h1
+    class="top-picks"
+    style="font-size: 28px; font-weight: bold; margin-left: 7%"
+  >
+    Top Picks
+  </h1>
+  <div class="product-list">
+    <div *ngFor="let item of products">
+      <app-product-card [product]="item"></app-product-card>
+    </div>
+  </div>
 </div>

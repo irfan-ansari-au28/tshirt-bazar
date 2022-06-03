@@ -13,9 +13,12 @@ import { FooterComponent } from './component/footer/footer.component';
 import { CardComponent } from './component/footer/card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+
 import { DividerComponent } from './component/divider/divider.component';
 import { BottomBarComponent } from './component/footer/bottom-bar/bottom-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ProductCardComponent } from './component/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CardComponent,
     DividerComponent,
     BottomBarComponent,
+    ProductCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserAnimationsModule,
     MatIconModule,
     FontAwesomeModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

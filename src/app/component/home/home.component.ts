@@ -7,9 +7,10 @@ import { ProductsService } from 'src/app/service/products.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  products = this.productsService.products;
   constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
-    console.log(this.productsService.products);
+    console.log(this.productsService.products, 'products');
   }
 }

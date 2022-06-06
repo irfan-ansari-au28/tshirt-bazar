@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Product } from '../interface/product.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
-  // cart: Product[] = [];
-  // wishlist: Product[] = [];
+  cart: Product[] = [];
+  wishlist: Product[] = [];
 
   products: Product[] = [
     {
@@ -332,4 +333,23 @@ export class ProductsService {
   ];
 
   constructor() {}
+
+  cartItems = new BehaviorSubject<Product[]>(this.cart);
+  wishListItems = new BehaviorSubject<Product[]>(this.wishlist);
+
+  // addToCart(item: Product) {
+  //   console.log('added to cart', this.cartItems);
+  //   this.cart = [...this.cart, item];
+  //   console.log(this.cart);
+  // }
+
+  addToCart(item: Product) {
+    this.cart.push(item);
+    this.cartItems.next(this.cart);
+    console.log('cartItems', this.cartItems);
+  }
+
+  getCartItems() {
+    console.log('get cart item', this.cartItems);
+  }
 }

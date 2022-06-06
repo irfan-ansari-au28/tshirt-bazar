@@ -12,5 +12,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.productsService.products, 'products');
+    // console.log(this.productsService.cart, 'cart');
+    this.productsService.cartItems.subscribe((data) => {
+      return data;
+    });
   }
 }

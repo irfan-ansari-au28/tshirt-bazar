@@ -19,6 +19,7 @@ import { DividerComponent } from './component/divider/divider.component';
 import { BottomBarComponent } from './component/footer/bottom-bar/bottom-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProductCardComponent } from './component/product-card/product-card.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ProductCardComponent } from './component/product-card/product-card.comp
     MatIconModule,
     FontAwesomeModule,
     MatCardModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

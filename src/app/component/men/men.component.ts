@@ -93,8 +93,10 @@ export class MenComponent implements OnInit {
   secQues = this.data.securityChallenge.securityChallengeItems;
 
   ans = new FormControl('');
+  ans1 = new FormControl('');
 
   selectedOption!: string;
+  selectedOption1!: string;
   response: { que: string; ans: string }[] = [];
 
   selectChangeHandler(event: any) {
@@ -102,12 +104,22 @@ export class MenComponent implements OnInit {
     console.log(event, 'et');
   }
 
+  selectChangeHandler1(event: any) {
+    this.selectedOption = event.target.value;
+  }
+
   onSave() {
     // console.log('form saved', this.ans.value, this.selectedOption);
-    this.response.push({
-      que: this.selectedOption,
-      ans: this.ans.value,
-    });
+    this.response.push(
+      {
+        que: this.selectedOption,
+        ans: this.ans.value,
+      },
+      {
+        que: this.selectedOption1,
+        ans: this.ans1.value,
+      }
+    );
 
     console.log('submitted', this.response);
     this.secQues = this.secQues.filter((que) => {

@@ -1,0 +1,17 @@
+<div class="sec1">
+  <select
+    class="security"
+    name="security1"
+    (change)="selectChangeHandler($event)"
+  >
+    <option *ngFor="let que of secQues; let i = index" [id]="que.key">
+      {{ que.question }}
+    </option>
+  </select>
+
+  <div class="que">
+    <label for="ans">Your Answer: </label>
+    <input id="ans" type="text" [formControl]="ans" />
+  </div>
+  <button (click)="onSave()">Submit</button>
+</div>

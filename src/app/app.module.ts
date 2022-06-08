@@ -20,6 +20,7 @@ import { BottomBarComponent } from './component/footer/bottom-bar/bottom-bar.com
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProductCardComponent } from './component/product-card/product-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DropdownSelectComponent } from './component/men/dropdown-select/dropdown-select.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     DividerComponent,
     BottomBarComponent,
     ProductCardComponent,
+    DropdownSelectComponent,
   ],
   imports: [
     BrowserModule,

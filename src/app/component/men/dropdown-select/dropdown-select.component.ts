@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { CartService } from 'src/app/service/cart.service';
 
 @Component({
-  selector: 'app-men',
-  templateUrl: './men.component.html',
-  styleUrls: ['./men.component.css'],
+  selector: 'app-dropdown-select',
+  templateUrl: './dropdown-select.component.html',
+  styleUrls: ['./dropdown-select.component.css'],
 })
-export class MenComponent implements OnInit {
+export class DropdownSelectComponent implements OnInit {
   // data = {
   //   keyValueMetadata: [],
   //   securityChallenge: {
@@ -90,48 +91,41 @@ export class MenComponent implements OnInit {
   //   },
   // };
 
-  // secQues = this.data.securityChallenge.securityChallengeItems;
+  secQues = this.quesService.getItems();
 
-  // ans = new FormControl('');
-  // ans1 = new FormControl('');
+  ans = new FormControl('');
 
-  // selectedOption!: string;
-  // selectedOption1!: string;
+  selectedOption!: string;
+
+  @Output() submit = new EventEmitter<any>();
+
   // response: { que: string; ans: string }[] = [];
 
-  // selectChangeHandler(event: any) {
-  //   this.selectedOption = event.target.value;
-  //   console.log(event, 'et');
-  // }
+  selectChangeHandler(event: any) {
+    this.selectedOption = event.target.value;
+    console.log(event, 'et');
+  }
 
-  // selectChangeHandler1(event: any) {
-  //   this.selectedOption = event.target.value;
-  // }
-
-  // onSave() {
-  //   // console.log('form saved', this.ans.value, this.selectedOption);
-  //   this.response.push(
-  //     {
-  //       que: this.selectedOption,
-  //       ans: this.ans.value,
-  //     },
-  //     {
-  //       que: this.selectedOption1,
-  //       ans: this.ans1.value,
-  //     }
-  //   );
-
-  //   console.log('submitted', this.response);
-  //   this.secQues = this.secQues.filter((que) => {
-  //     return this.selectedOption !== que.question;
-  //   });
-  //   console.log(this.secQues);
-
-  //   // alert('Thanks for your response !');
-  // }
-
-  ngOnInit(): void {}
   onSave() {
-    console.log('Successfully submitted the response');
+    this.submit.emit();
+    // console.log('form saved', this.ans.value, this.selectedOption);
+    this.quesService.setItems({
+      que: this.selectedOption,
+      ans: this.ans.value,
+    });
+
+    // console.log('submitted', this.response);
+    // this.secQues = this.secQues.filter((que) => {
+    //   return this.selectedOption !== que.question;
+    // });
+    // console.log(this.secQues);
+
+    alert('Thanks for your response !');
+  }
+
+  constructor(private quesService: CartService) {}
+
+  ngOnInit(): void {
+    // console.log('secQues', this.quesService.getItems());
   }
 }

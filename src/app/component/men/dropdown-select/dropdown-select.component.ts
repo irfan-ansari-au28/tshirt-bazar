@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
 import { CartService } from 'src/app/service/cart.service';
 
 @Component({
@@ -93,11 +94,11 @@ export class DropdownSelectComponent implements OnInit {
 
   secQues = this.quesService.getItems();
 
+  // remSecQues = new BehaviorSubject<any>(this.secQues);
+
   ans = new FormControl('');
 
   selectedOption!: string;
-
-  @Output() submit = new EventEmitter<any>();
 
   // response: { que: string; ans: string }[] = [];
 
@@ -107,7 +108,6 @@ export class DropdownSelectComponent implements OnInit {
   }
 
   onSave() {
-    this.submit.emit();
     // console.log('form saved', this.ans.value, this.selectedOption);
     this.quesService.setItems({
       que: this.selectedOption,

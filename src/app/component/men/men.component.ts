@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { CartService } from 'src/app/service/cart.service';
+import { SharedService } from 'src/app/service/shared.service';
 
 @Component({
   selector: 'app-men',
@@ -129,9 +131,23 @@ export class MenComponent implements OnInit {
 
   //   // alert('Thanks for your response !');
   // }
-
-  ngOnInit(): void {}
+  constructor(
+    private answerService: CartService,
+    private sharedService: SharedService
+  ) {}
+  data = [];
+  ngOnInit(): void {
+    this.answerService.answers.subscribe((res) => {
+      this.data = res;
+      console.log(res, 'response from men component');
+    });
+  }
   onSave() {
-    console.log('Successfully submitted the response');
+    // console.log('hitting on save');
+
+    // this.answerService.answers.next(this.data);
+    // console.log('Successfully submitted the response');
+
+    this.sharedService.sendClickEvent();
   }
 }

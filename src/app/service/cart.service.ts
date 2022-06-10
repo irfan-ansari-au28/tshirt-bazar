@@ -90,6 +90,8 @@ export class CartService {
 
   secQues = this.data.securityChallenge.securityChallengeItems;
 
+  quesList = new BehaviorSubject<any>(this.secQues);
+
   response: any = [];
 
   defaultResponse = [{ que: "What's your name?", ans: 'Macbook Pro' }];
@@ -105,5 +107,12 @@ export class CartService {
     return this.secQues;
   }
 
-  constructor() {}
+  constructor() {
+    console.log('secQues from cart service', this.secQues);
+
+    console.log('queList from cart', this.quesList.value);
+    this.quesList.subscribe((res) => {
+      console.log('subscribe value from queList subject', res);
+    });
+  }
 }

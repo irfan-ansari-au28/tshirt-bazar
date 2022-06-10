@@ -149,5 +149,6 @@ export class MenComponent implements OnInit {
     // console.log('Successfully submitted the response');
 
     this.sharedService.sendClickEvent();
+    alert('thanks!');
   }
 }

@@ -22,90 +22,8 @@ import { SharedService } from 'src/app/service/shared.service';
 export class DropdownSelectComponent
   implements OnInit, OnDestroy, DoCheck, OnChanges
 {
-  // data = {
-  //   keyValueMetadata: [],
-  //   securityChallenge: {
-  //     securityChallengeItems: [
-  //       {
-  //         key: '100',
-  //         orderIndex: -1,
-  //         question: 'Where did you meet your spouse?',
-  //       },
-  //       {
-  //         key: '101',
-  //         orderIndex: -1,
-  //         question: "What's your youngest child's nickname?",
-  //       },
-  //       {
-  //         key: '102',
-  //         orderIndex: -1,
-  //         question: "What's your oldest child's nickname?",
-  //       },
-  //       {
-  //         key: '103',
-  //         orderIndex: -1,
-  //         question: "What's your mother's maiden name?",
-  //       },
-  //       {
-  //         key: '104',
-  //         orderIndex: -1,
-  //         question: "What's your favourite uncle's name?",
-  //       },
-  //       {
-  //         key: '105',
-  //         orderIndex: -1,
-  //         question: 'What is the last name of your first boss?',
-  //       },
-  //       {
-  //         key: '106',
-  //         orderIndex: -1,
-  //         question: 'What was the make of your first car?',
-  //       },
-  //       {
-  //         key: '107',
-  //         orderIndex: -1,
-  //         question: 'What was the last name of your favorite teacher?',
-  //       },
-  //       {
-  //         key: '108',
-  //         orderIndex: -1,
-  //         question: 'Who is your favorite all time movie character?',
-  //       },
-  //       {
-  //         key: '109',
-  //         orderIndex: -1,
-  //         question: 'In which city were you born?',
-  //       },
-  //       {
-  //         key: '110',
-  //         orderIndex: -1,
-  //         question: 'What is your favourite colour?',
-  //       },
-  //       {
-  //         key: '111',
-  //         orderIndex: -1,
-  //         question: "What's the last name of your favourite musician?",
-  //       },
-  //       {
-  //         key: '112',
-  //         orderIndex: -1,
-  //         question: "What's the name of your favourite sport team?",
-  //       },
-  //       {
-  //         key: '113',
-  //         orderIndex: -1,
-  //         question: "What's the name of the street on which you grew up?",
-  //       },
-  //       {
-  //         key: '114',
-  //         orderIndex: -1,
-  //         question: "What's your favourite car brand?",
-  //       },
-  //     ],
-  //   },
-  // };
-
-  secQues = this.quesService.getItems();
+  // secQues = this.quesService.getItems();
+  secQues: any = [];
 
   // remSecQues = new BehaviorSubject<any>(this.secQues);
 
@@ -121,6 +39,14 @@ export class DropdownSelectComponent
     console.log(this.selectedOption, 'selected option');
 
     this.selectedOption = event.target.value;
+
+    // if (this.ans.value?.length > 0 && this.selectedOption.length > 0) {
+
+    // }
+    this.secQues = this.secQues.filter((que: any) => {
+      return this.selectedOption !== que.question;
+    });
+    this.quesService.quesList.next(this.secQues);
 
     // if (this.ans.value?.length > 0 && this.selectedOption.length > 0) {
     //   this.quesService.answers.next([
@@ -142,6 +68,7 @@ export class DropdownSelectComponent
         ans: this.ans.value,
       },
     ]);
+
     // this.quesService.setItems({
     //   que: this.selectedOption,
     //   ans: this.ans.value,
@@ -168,6 +95,15 @@ export class DropdownSelectComponent
   ngOnInit(): void {
     this.quesService.answers.subscribe((res) => (this.defaultData = res));
     // console.log('secQues', this.quesService.getItems());
+    // this.quesService.quesList.next(this.secQues);
+    // this.quesService.quesList.subscribe((res) => console.log(res));
+    // console.log('this.ques', this.quesList);
+
+    this.quesService.quesList.subscribe((res) => {
+      this.secQues = res;
+      console.log(this.secQues, '----------------xxxxxxxx------------------');
+      // this.secQues = [...this.secQues];
+    });
   }
 
   ngOnDestroy(): void {
@@ -184,13 +120,9 @@ export class DropdownSelectComponent
 
   ngDoCheck(): void {
     // if (this.ans.value?.length > 0 && this.selectedOption.length > 0) {
-    //   this.quesService.answers.next([
-    //     ...this.defaultData,
-    //     {
-    //       que: this.selectedOption,
-    //       ans: this.ans.value,
-    //     },
-    //   ]);
+    //   this.secQues = this.secQues.filter((que) => {
+    //     return this.selectedOption !== que.question;
+    //   });
     // }
   }
 

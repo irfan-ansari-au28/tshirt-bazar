@@ -23,4 +23,56 @@ export class OfferComponent implements OnInit {
   // ngOnDestroy(): void {
   //   this.user.userList.unsubscribe();
   // }
+
+  length = 0;
+  includeLetters = false;
+  includeNumbers = false;
+  includeSymbols = false;
+  password = '';
+
+  onChangeLength(value: any) {
+    console.log(value);
+
+    const parsedValue = parseInt(value.value);
+    if (!isNaN(parsedValue)) {
+      this.length = parsedValue;
+      console.log(this.length);
+    }
+
+    console.log(this.includeLetters, 'thisIncludeLetter');
+  }
+
+  onChangeLetter() {
+    this.includeLetters = !this.includeLetters;
+    console.log(this.includeLetters, 'thisIncludeLetter');
+  }
+
+  onChangeNumber() {
+    this.includeNumbers = !this.includeNumbers;
+    console.log(this.includeNumbers, 'includeNumbers');
+  }
+
+  onChangeSymbol() {
+    this.includeSymbols = !this.includeSymbols;
+    console.log(this.includeSymbols, 'includeSymbols');
+  }
+
+  onClickButton() {
+    console.log('button clicked');
+
+    const numbers = '1234567890';
+    const letters = 'abcdefghijklmnopqrstuvwyz';
+    const symbols = '!@#$%^&*()';
+
+    const index = Math.floor(Math.random() * this.length * 10);
+
+    for (let i = 0; i < index; i++) {
+      console.log(i);
+    }
+  }
+
+  input!: number;
+  onChangeInput(value: any) {
+    this.input = +value.value;
+  }
 }

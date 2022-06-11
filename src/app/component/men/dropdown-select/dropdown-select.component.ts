@@ -59,6 +59,10 @@ export class DropdownSelectComponent
     // }
   }
 
+  // getSelectedItem() {
+  //   return this.selectedOption;
+  // }
+
   onSave() {
     console.log('form saved', this.ans.value, this.selectedOption);
     this.quesService.answers.next([
@@ -129,16 +133,16 @@ export class DropdownSelectComponent
   clickEventsubscription: Subscription;
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes) {
-      if (this.ans.value?.length > 0 && this.selectedOption.length > 0) {
-        this.quesService.answers.next([
-          ...this.defaultData,
-          {
-            que: this.selectedOption,
-            ans: this.ans.value,
-          },
-        ]);
-      }
-    }
+    // if (changes) {
+    //   if (this.ans.value?.length > 0 && this.selectedOption.length > 0) {
+    //     this.quesService.answers.next([
+    //       ...this.defaultData,
+    //       {
+    //         que: this.selectedOption,
+    //         ans: this.ans.value,
+    //       },
+    //     ]);
+    //   }
+    // }
   }
 }

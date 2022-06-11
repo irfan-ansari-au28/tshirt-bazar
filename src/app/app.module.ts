@@ -24,6 +24,7 @@ import { ProductCardComponent } from './component/product-card/product-card.comp
 import { ReactiveFormsModule } from '@angular/forms';
 import { DropdownSelectComponent } from './component/men/dropdown-select/dropdown-select.component';
 import { CounterComponent } from './component/counter/counter.component';
+import { PipePipe } from './pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { CounterComponent } from './component/counter/counter.component';
     ProductCardComponent,
     DropdownSelectComponent,
     CounterComponent,
+    PipePipe,
   ],
   imports: [
     BrowserModule,

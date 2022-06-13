@@ -26,6 +26,11 @@ import { DropdownSelectComponent } from './component/men/dropdown-select/dropdow
 import { CounterComponent } from './component/counter/counter.component';
 import { PipePipe } from './pipe.pipe';
 import { DiscountComponent } from './component/offer/discount/discount.component';
+import { COUNTER_STATE_NAME } from './store/counter.selector';
+import { reducer } from './store/counter.reducer';
+import { StoreModule } from '@ngrx/store';
+import { CounterButtonsComponent } from './component/counter/counter-buttons/counter-buttons.component';
+import { CounterOutputComponent } from './component/counter/counter-output/counter-output.component';
 
 @NgModule({
   declarations: [
@@ -45,9 +50,13 @@ import { DiscountComponent } from './component/offer/discount/discount.component
     CounterComponent,
     PipePipe,
     DiscountComponent,
+    CounterButtonsComponent,
+    CounterOutputComponent,
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({}),
+    StoreModule.forFeature(COUNTER_STATE_NAME, reducer),
     HttpClientModule,
     FormsModule,
     AppRoutingModule,

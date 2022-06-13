@@ -75,4 +75,11 @@ export class OfferComponent implements OnInit {
   onChangeInput(value: any) {
     this.input = +value.value;
   }
+  getDiscountObj(value: object) {
+    console.log('received', value);
+  }
+
+  getUserInfo(user: object) {
+    console.log(user, 'UserInfo');
+  }
 }

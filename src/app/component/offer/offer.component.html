@@ -32,5 +32,12 @@
       <input type="text" (keyup)="onChangeInput($event.target)" />
       {{ input | pipe }}
     </div>
+
+    <div class="main">
+      <app-discount (discount)="getDiscountObj($event)"></app-discount>
+    </div>
+    <div class="main">
+      <app-discount (userInfo)="getUserInfo($event)"></app-discount>
+    </div>
   </div>
 </div>

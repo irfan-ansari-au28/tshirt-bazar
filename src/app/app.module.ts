@@ -21,10 +21,11 @@ import { DividerComponent } from './component/divider/divider.component';
 import { BottomBarComponent } from './component/footer/bottom-bar/bottom-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProductCardComponent } from './component/product-card/product-card.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownSelectComponent } from './component/men/dropdown-select/dropdown-select.component';
 import { CounterComponent } from './component/counter/counter.component';
 import { PipePipe } from './pipe.pipe';
+import { DiscountComponent } from './component/offer/discount/discount.component';
 
 @NgModule({
   declarations: [
@@ -43,10 +44,12 @@ import { PipePipe } from './pipe.pipe';
     DropdownSelectComponent,
     CounterComponent,
     PipePipe,
+    DiscountComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,

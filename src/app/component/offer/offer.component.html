@@ -1,1 +1,42 @@
-<p>offer works!</p>
+<div class="container">
+  <p>offer works!</p>
+  <app-counter></app-counter>
+
+  <div class="main">
+    <h2>Random Password Generator</h2>
+    <div class="main">
+      <label for="length">Length</label>
+      <input type="text" (keyup)="onChangeLength($event.target)" />
+      <!-- <input class="input" (input)="onChangeLength($event.target.value)" /> -->
+    </div>
+    <div class="main">
+      <input type="checkbox" (change)="onChangeLetter()" />
+      <label for="letters">Include letters</label>
+    </div>
+    <div class="main">
+      <input type="checkbox" (change)="onChangeNumber()" />
+      <label for="numbers">Include numbers</label>
+    </div>
+    <div class="main">
+      <input type="checkbox" (change)="onChangeSymbol()" />
+      <label for="symbols">Include symbols</label>
+    </div>
+    <button (click)="onClickButton()">Generate Password</button>
+    <div class="main" *ngIf="password">
+      <input type="text" [value]="length" />
+    </div>
+    <div class="main">
+      <input type="date" />
+    </div>
+    <div class="main">
+      <input type="text" (keyup)="onChangeInput($event.target)" />
+      {{ input | pipe }}
+    </div>
+
+    <div class="main">
+      <app-discount (userInfo)="getUserInfo($event)"></app-discount>
+    </div>
+  </div>
+
+  <app-counter></app-counter>
+</div>

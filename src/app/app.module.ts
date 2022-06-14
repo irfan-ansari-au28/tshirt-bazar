@@ -21,8 +21,16 @@ import { DividerComponent } from './component/divider/divider.component';
 import { BottomBarComponent } from './component/footer/bottom-bar/bottom-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProductCardComponent } from './component/product-card/product-card.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownSelectComponent } from './component/men/dropdown-select/dropdown-select.component';
+import { CounterComponent } from './component/counter/counter.component';
+import { PipePipe } from './pipe.pipe';
+import { DiscountComponent } from './component/offer/discount/discount.component';
+import { COUNTER_STATE_NAME } from './store/counter.selector';
+import { reducer } from './store/counter.reducer';
+import { StoreModule } from '@ngrx/store';
+import { CounterButtonsComponent } from './component/counter/counter-buttons/counter-buttons.component';
+import { CounterOutputComponent } from './component/counter/counter-output/counter-output.component';
 
 @NgModule({
   declarations: [
@@ -39,10 +47,18 @@ import { DropdownSelectComponent } from './component/men/dropdown-select/dropdow
     BottomBarComponent,
     ProductCardComponent,
     DropdownSelectComponent,
+    CounterComponent,
+    PipePipe,
+    DiscountComponent,
+    CounterButtonsComponent,
+    CounterOutputComponent,
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({}),
+    StoreModule.forFeature(COUNTER_STATE_NAME, reducer),
     HttpClientModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,

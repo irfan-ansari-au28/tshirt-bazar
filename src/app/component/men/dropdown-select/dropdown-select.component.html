@@ -4,7 +4,7 @@
     name="security1"
     (change)="selectChangeHandler($event)"
   >
-    <option *ngFor="let que of secQues; let i = index" [id]="que.key">
+    <option *ngFor="let que of secQues">
       {{ que.question }}
     </option>
   </select>
@@ -13,5 +13,6 @@
     <label for="ans">Your Answer: </label>
     <input id="ans" type="text" [formControl]="ans" />
   </div>
-  <button (click)="onSave()">Submit</button>
+
+  <!-- <div *ngFor="let elements of secQues">{{ elements.question }}</div> -->
 </div>

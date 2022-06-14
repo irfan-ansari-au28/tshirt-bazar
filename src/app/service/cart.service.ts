@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -89,7 +90,13 @@ export class CartService {
 
   secQues = this.data.securityChallenge.securityChallengeItems;
 
+  quesList = new BehaviorSubject<any>(this.secQues);
+
   response: any = [];
+
+  defaultResponse = [{ que: "What's your name?", ans: 'Macbook Pro' }];
+
+  answers = new BehaviorSubject<any>(this.defaultResponse);
 
   setItems(item: any) {
     this.response = [...this.response, item];
@@ -100,5 +107,12 @@ export class CartService {
     return this.secQues;
   }
 
-  constructor() {}
+  constructor() {
+    console.log('secQues from cart service', this.secQues);
+
+    console.log('queList from cart', this.quesList.value);
+    this.quesList.subscribe((res) => {
+      console.log('subscribe value from queList subject', res);
+    });
+  }
 }

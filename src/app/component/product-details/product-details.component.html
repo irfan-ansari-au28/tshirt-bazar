@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="flex-start">
+    <mat-card>
+      <img
+        mat-card-image
+        src="{{ product?.img }}"
+        alt="Photo of a Shiba Inu"
+        class="product-image"
+        width="400"
+        height="500"
+      />
+    </mat-card>
+    <div class="product-details">
+      <div class="product-title">{{ product?.name }}</div>
+      <div class="type">{{ product?.type }}</div>
+      <div class="rating">Rating - {{ product?.rating }}</div>
+      <div class="available-sizes">Available Sizes:</div>
+      <div class="circles">
+        <div *ngFor="let circle of product?.size">
+          <div class="circle">{{ circle.type }}</div>
+        </div>
+      </div>
+      <a href="#" class="size">Size Chart</a>
+      <div class="divider"></div>
+      <div class="actual-price">${{ product?.actualPrice }}</div>
+      <div class="divider"></div>
+      <div class="btn-wishlist flex-center">
+        <div class="btn-title">Add to Wishlist</div>
+        <i class="fa fa-heart"></i>
+      </div>
+      <a [routerLink]="['/products', product?.id]">
+        <div class="btn-view-product">Add to Cart</div>
+      </a>
+    </div>
+  </div>
+</div>

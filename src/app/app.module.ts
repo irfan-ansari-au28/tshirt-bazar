@@ -31,6 +31,7 @@ import { reducer } from './store/counter.reducer';
 import { StoreModule } from '@ngrx/store';
 import { CounterButtonsComponent } from './component/counter/counter-buttons/counter-buttons.component';
 import { CounterOutputComponent } from './component/counter/counter-output/counter-output.component';
+import { ProductDetailsComponent } from './component/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { CounterOutputComponent } from './component/counter/counter-output/count
     DiscountComponent,
     CounterButtonsComponent,
     CounterOutputComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,

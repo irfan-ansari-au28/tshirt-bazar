@@ -1,0 +1,51 @@
+<p>checkout works!</p>
+<div class="container" *ngIf="products$?.length > 0">
+  <div class="label">
+    <mat-card class="products">
+      <div class="head">
+        <h2>Your Products:</h2>
+        <h4>Size Chart</h4>
+      </div>
+      <mat-card *ngFor="let product of products$" class="product">
+        <div class="image">
+          <img src="{{ product.img }}" alt="" />
+        </div>
+        <div class="details">
+          <div class="title">
+            <span>{{ product.name }}</span>
+            <br />
+            <span>{{ product.type }}</span>
+          </div>
+          <div class="rating">
+            Rating:
+            <span class="value">{{ product.rating }}</span>
+          </div>
+          <div class="selectSize">
+            <label for="size">Select Size: </label>
+            <select name="size" class="size" #size>
+              <option value="-">---</option>
+              <option
+                *ngFor="let i of product.size"
+                value="{{ i.type }}"
+                [disabled]="i.stock === 0"
+              >
+                {{ i.type }}
+              </option>
+            </select>
+          </div>
+          <div class="remove">Remove</div>
+        </div>
+        <div class="price" *ngIf="product.discountedPrice === 0">
+          {{ product.actualPrice }}
+        </div>
+        <div class="price" *ngIf="product.discountedPrice > 0">
+          {{ product.discountedPrice }}
+        </div>
+      </mat-card>
+      <div class="totalCost">
+        <span class="label">Total Amount: </span>
+        <span class="action">{{ "hi" }}</span>
+      </div>
+    </mat-card>
+  </div>
+</div>

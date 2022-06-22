@@ -26,12 +26,17 @@ import { DropdownSelectComponent } from './component/men/dropdown-select/dropdow
 import { CounterComponent } from './component/counter/counter.component';
 import { PipePipe } from './pipe.pipe';
 import { DiscountComponent } from './component/offer/discount/discount.component';
-import { COUNTER_STATE_NAME } from './store/counter.selector';
-import { reducer } from './store/counter.reducer';
+import { COUNTER_STATE_NAME } from './store/couter/counter.selector';
+import { reducer } from './store/couter/counter.reducer';
 import { StoreModule } from '@ngrx/store';
 import { CounterButtonsComponent } from './component/counter/counter-buttons/counter-buttons.component';
 import { CounterOutputComponent } from './component/counter/counter-output/counter-output.component';
 import { ProductDetailsComponent } from './component/product-details/product-details.component';
+import { cartReducer } from './store/cart/cart.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { CheckoutComponent } from './component/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -54,10 +59,11 @@ import { ProductDetailsComponent } from './component/product-details/product-det
     CounterButtonsComponent,
     CounterOutputComponent,
     ProductDetailsComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({ cart: cartReducer }),
     StoreModule.forFeature(COUNTER_STATE_NAME, reducer),
     HttpClientModule,
     FormsModule,
@@ -68,6 +74,11 @@ import { ProductDetailsComponent } from './component/product-details/product-det
     FontAwesomeModule,
     MatCardModule,
     ReactiveFormsModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent],

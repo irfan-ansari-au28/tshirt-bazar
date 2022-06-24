@@ -1,4 +1,3 @@
-<p>checkout works!</p>
 <div class="container" *ngIf="products$?.length > 0">
   <div class="label">
     <mat-card class="products">
@@ -33,19 +32,70 @@
               </option>
             </select>
           </div>
-          <div class="remove">Remove</div>
+          <button class="remove" (click)="onClickRemove(product.id)">
+            Remove
+          </button>
         </div>
         <div class="price" *ngIf="product.discountedPrice === 0">
-          {{ product.actualPrice }}
+          ${{ product.actualPrice }}.00
         </div>
         <div class="price" *ngIf="product.discountedPrice > 0">
-          {{ product.discountedPrice }}
+          ${{ product.discountedPrice }}.00
         </div>
       </mat-card>
       <div class="totalCost">
         <span class="label">Total Amount: </span>
-        <span class="action">{{ "hi" }}</span>
+        <span class="action">{{ "$345.00" }}</span>
       </div>
     </mat-card>
+  </div>
+  <div class="shipping">
+    <div class="sh-title">Shipping Details:</div>
+    <div class="example-container">
+      <mat-form-field class="form-app">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Jessica Pearson" [formControl]="name" />
+        <mat-error *ngIf="name.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-app">
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          [formControl]="email"
+          required
+        />
+        <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-app">
+        <mat-label>Mobile No</mat-label>
+        <input
+          matInput
+          placeholder="Mobile Number"
+          [formControl]="mobile"
+          type="number"
+          required
+        />
+        <!-- <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field class="form-app">
+        <mat-label>PinCode</mat-label>
+        <input
+          type="number"
+          matInput
+          placeholder="PinCode"
+          [formControl]="pin"
+          required
+        />
+        <!-- <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error> -->
+      </mat-form-field>
+
+      <a>
+        <div class="btn-view-product" (click)="onPlaceOrder()">Place Order</div>
+      </a>
+    </div>
   </div>
 </div>

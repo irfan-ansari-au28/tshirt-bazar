@@ -32,9 +32,9 @@
         <a>
           <div
             class="btn-view-product"
-            (click)="btn.length > 0 ? onGoToCart() : onAddToCart()"
+            (click)="isBtnVisible ? onGoToCart() : onAddToCart()"
           >
-            {{ btn.length > 0 ? "Go to Cart" : "Add to Cart" }}
+            {{ isBtnVisible ? "Go to Cart" : "Add to Cart" }}
           </div>
         </a>
       </div>

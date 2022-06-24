@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ProductsService } from 'src/app/service/products.service';
 import { addToCart, removeFromCart } from 'src/app/store/cart/cart.actions';
+import { selectCart } from 'src/app/store/cart/cart.selector';
 
 @Component({
   selector: 'app-product-details',
@@ -14,6 +15,8 @@ export class ProductDetailsComponent implements OnInit {
   cartItems$: any = [];
   id!: number;
   btn!: any;
+  items$: any = [];
+  isBtnVisible: boolean = false;
 
   constructor(
     private productService: ProductsService,
@@ -26,15 +29,21 @@ export class ProductDetailsComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('productId'));
     this.id = productIdFromRoute;
-    this.cartItems$ = this.store.select((state) => state.cart.cartItems);
-    this.cartItems$.subscribe((val: any) => (this.btn = val));
     this.product = this.productService.products.find(
       (product) => product.id === productIdFromRoute
     );
+
+    this.store.select(selectCart).subscribe((res) => (this.items$ = res));
+    console.log(this.items$, 'items$');
   }
 
   onAddToCart() {
     this.store.dispatch(addToCart({ product: this.product }));
+    console.log(this.product);
+
+    this.isBtnVisible = true;
+    if (true) {
+    }
   }
 
   onRemoveFromCart() {
@@ -43,5 +52,6 @@ export class ProductDetailsComponent implements OnInit {
 
   onGoToCart() {
     this.router.navigate(['/checkout']);
+    this.isBtnVisible = false;
   }
 }

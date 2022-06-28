@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 
+import { MatInputModule } from '@angular/material/input';
 import { DividerComponent } from './component/divider/divider.component';
 import { BottomBarComponent } from './component/footer/bottom-bar/bottom-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -37,6 +38,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { CheckoutComponent } from './component/checkout/checkout.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { CheckoutComponent } from './component/checkout/checkout.component';
     MatTableModule,
     FontAwesomeModule,
     MatCardModule,
+    MatFormFieldModule,
     ReactiveFormsModule,
+    MatInputModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

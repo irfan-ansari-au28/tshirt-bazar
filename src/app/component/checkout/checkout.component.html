@@ -1,0 +1,101 @@
+<div class="container" *ngIf="products$?.length > 0">
+  <div class="label">
+    <mat-card class="products">
+      <div class="head">
+        <h2>Your Products:</h2>
+        <h4>Size Chart</h4>
+      </div>
+      <mat-card *ngFor="let product of products$" class="product">
+        <div class="image">
+          <img src="{{ product.img }}" alt="" />
+        </div>
+        <div class="details">
+          <div class="title">
+            <span>{{ product.name }}</span>
+            <br />
+            <span>{{ product.type }}</span>
+          </div>
+          <div class="rating">
+            Rating:
+            <span class="value">{{ product.rating }}</span>
+          </div>
+          <div class="selectSize">
+            <label for="size">Select Size: </label>
+            <select name="size" class="size" #size>
+              <option value="-">---</option>
+              <option
+                *ngFor="let i of product.size"
+                value="{{ i.type }}"
+                [disabled]="i.stock === 0"
+              >
+                {{ i.type }}
+              </option>
+            </select>
+          </div>
+          <button class="remove" (click)="onClickRemove(product.id)">
+            Remove
+          </button>
+        </div>
+        <div class="price" *ngIf="product.discountedPrice === 0">
+          ${{ product.actualPrice }}.00
+        </div>
+        <div class="price" *ngIf="product.discountedPrice > 0">
+          ${{ product.discountedPrice }}.00
+        </div>
+      </mat-card>
+      <div class="totalCost">
+        <span class="label">Total Amount: </span>
+        <span class="action">{{ "$345.00" }}</span>
+      </div>
+    </mat-card>
+  </div>
+  <div class="shipping">
+    <div class="sh-title">Shipping Details:</div>
+    <div class="example-container">
+      <mat-form-field class="form-app">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Jessica Pearson" [formControl]="name" />
+        <mat-error *ngIf="name.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-app">
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          [formControl]="email"
+          required
+        />
+        <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-app">
+        <mat-label>Mobile No</mat-label>
+        <input
+          matInput
+          placeholder="Mobile Number"
+          [formControl]="mobile"
+          type="number"
+          required
+        />
+        <!-- <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field class="form-app">
+        <mat-label>PinCode</mat-label>
+        <input
+          type="number"
+          matInput
+          placeholder="PinCode"
+          [formControl]="pin"
+          required
+        />
+        <!-- <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error> -->
+      </mat-form-field>
+
+      <a>
+        <div class="btn-view-product" (click)="onPlaceOrder()">Place Order</div>
+      </a>
+    </div>
+  </div>
+</div>

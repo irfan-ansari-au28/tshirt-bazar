@@ -1,0 +1,20 @@
+.container {
+  padding: 60px 0px;
+}
+
+.sec1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.que {
+  margin-left: 40px;
+}
+
+.button {
+  margin-top: 30px;
+  padding: 5px 10px;
+  cursor: pointer;
+}

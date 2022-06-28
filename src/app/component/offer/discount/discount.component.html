@@ -1,0 +1,18 @@
+<p>discount works!</p>
+<Button (click)="onClickButton()">Send</Button>
+
+<div class="user-data">
+  <div class="email">
+    <label for="email">Email</label>
+    <input type="email" [(ngModel)]="email" placeholder="Enter email" />
+  </div>
+  <div class="password">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      [(ngModel)]="password"
+      placeholder="Enter password"
+    />
+  </div>
+  <button (click)="onSubmit()">Submit</button>
+</div>

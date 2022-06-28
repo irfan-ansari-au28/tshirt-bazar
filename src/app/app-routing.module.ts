@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CheckoutComponent } from './component/checkout/checkout.component';
 import { HomeComponent } from './component/home/home.component';
 import { MenComponent } from './component/men/men.component';
 import { OfferComponent } from './component/offer/offer.component';
+import { ProductDetailsComponent } from './component/product-details/product-details.component';
 import { WomenComponent } from './component/women/women.component';
 
 const routes: Routes = [
@@ -10,6 +12,8 @@ const routes: Routes = [
   { path: 'men', component: MenComponent },
   { path: 'women', component: WomenComponent },
   { path: 'offer', component: OfferComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'products/:productId', component: ProductDetailsComponent },
 ];
 
 @NgModule({

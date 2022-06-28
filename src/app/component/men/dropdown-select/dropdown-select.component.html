@@ -1,0 +1,18 @@
+<div class="sec1">
+  <select
+    class="security"
+    name="security1"
+    (change)="selectChangeHandler($event)"
+  >
+    <option *ngFor="let que of secQues">
+      {{ que.question }}
+    </option>
+  </select>
+
+  <div class="que">
+    <label for="ans">Your Answer: </label>
+    <input id="ans" type="text" [formControl]="ans" />
+  </div>
+
+  <!-- <div *ngFor="let elements of secQues">{{ elements.question }}</div> -->
+</div>

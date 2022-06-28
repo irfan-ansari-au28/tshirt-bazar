@@ -1,0 +1,117 @@
+.product-details {
+  background-color: white;
+  padding: 40px;
+}
+.product-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #9c9c9c;
+  padding: 10px 0px !important;
+}
+
+.flex-start {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 60px;
+}
+
+.type {
+  font-size: 24px;
+  color: #253469;
+  font-weight: 550;
+  padding: 10px 0;
+}
+
+mat-card {
+  box-shadow: none !important;
+}
+
+.divider {
+  background-color: #9c9c9c;
+  width: 90;
+  border: #9c9c9c 1px solid;
+  margin: 20px 0px;
+}
+
+.rating {
+  padding: 10px 0;
+  font-size: 16px;
+  color: #9c9c9c;
+}
+
+.available-sizes {
+  font-weight: 400;
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
+  margin: 20px 0px;
+}
+
+.size {
+  color: black;
+  letter-spacing: normal;
+  margin: 20px 0px !important;
+  font-size: bold;
+}
+
+.actual-price {
+  padding: 5px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #253469;
+  font-size: 24px;
+}
+
+.btn-wishlist {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 4px 0px;
+  padding: 10px 15px;
+  border: 1px solid rgba(128, 128, 128, 0.617);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-name {
+  margin: 10px 0px;
+}
+.btn-view-product {
+  color: #2aca9a;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px 0px;
+  padding: 10px 15px;
+  border: 1px solid #2aca9a;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.fa-heart {
+  margin-left: 4px;
+}
+
+.mat-card-image:first-child {
+  margin-top: 0px;
+}
+
+.circles {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0px;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid black;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

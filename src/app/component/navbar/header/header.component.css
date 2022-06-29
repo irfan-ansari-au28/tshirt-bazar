@@ -2,9 +2,9 @@
   background-color: white;
   padding: 5px 0px;
 }
-
+/* 
 .header-wrap {
-}
+} */
 
 .header-link {
   padding: 12px 15px;
@@ -16,4 +16,10 @@
 .logo {
   margin-left: 16px;
   cursor: pointer;
+}
+
+.active-link {
+  font-weight: bold;
+  color: green;
+  border-bottom: 2px solid green;
 }

@@ -1,0 +1,27 @@
+.popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 12px;
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+mat-form-field {
+  margin-bottom: 10px;
+  font-size: 16px;
+  width: 100%;
+}
+
+button {
+  width: 100%;
+}

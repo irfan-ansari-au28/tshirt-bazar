@@ -1,0 +1,31 @@
+<div class="popup">
+  <h2>Welcome</h2>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input
+      type="email"
+      matInput
+      [formControl]="email"
+      placeholder="abc@mail.com"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      type="password"
+      [formControl]="pass"
+      placeholder="Abc@123"
+    />
+  </mat-form-field>
+  <button
+    mat-raised-button
+    mat-dialog-close
+    color="primary"
+    (click)="onSignIn()"
+  >
+    Sign In
+  </button>
+  <p>Forgot Password?</p>
+</div>

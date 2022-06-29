@@ -16,6 +16,8 @@ import { CardComponent } from './component/footer/card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 import { MatInputModule } from '@angular/material/input';
 import { DividerComponent } from './component/divider/divider.component';
@@ -39,6 +41,9 @@ import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { CheckoutComponent } from './component/checkout/checkout.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { LogInPopupComponent } from './component/log-in-popup/log-in-popup.component';
+import { LoginComponent } from './component/login/login.component';
+import { userReducer } from './store/users/users.reducer';
 
 @NgModule({
   declarations: [
@@ -62,10 +67,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CounterOutputComponent,
     ProductDetailsComponent,
     CheckoutComponent,
+    LogInPopupComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({ cart: cartReducer }),
+    StoreModule.forRoot({ cart: cartReducer, user: userReducer }),
     StoreModule.forFeature(COUNTER_STATE_NAME, reducer),
     HttpClientModule,
     FormsModule,
@@ -77,7 +84,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatCardModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatButtonModule,
     MatInputModule,
+    MatDialogModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

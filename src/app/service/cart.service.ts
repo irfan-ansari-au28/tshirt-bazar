@@ -97,6 +97,7 @@ export class CartService {
   defaultResponse = [{ que: "What's your name?", ans: 'Macbook Pro' }];
 
   answers = new BehaviorSubject<any>(this.defaultResponse);
+  // always user TS
 
   setItems(item: any) {
     this.response = [...this.response, item];

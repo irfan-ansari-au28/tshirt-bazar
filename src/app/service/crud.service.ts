@@ -13,7 +13,7 @@ export class CrudService {
   getUsers(): Observable<Crud[]> {
     return this.http.get<Crud[]>(this.url);
   }
-
+  /// Don;t use any TS
   postUsers(user: any): Observable<any> {
     return this.http.post<Crud>('http://localhost:3000/users', user);
   }
